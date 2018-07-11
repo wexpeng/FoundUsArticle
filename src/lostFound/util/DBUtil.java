@@ -8,7 +8,7 @@ public class DBUtil {
     private static String driver = "com.mysql.jdbc.Driver";
     private static String url = "jdbc:mysql://localhost:3306/lostandfound?useSSL=false";
     private static String user = "root";
-    private static String password = "430626199912038165";
+    private static String password = "root";
 
     //获取链接
     public static Connection getConnection() {
