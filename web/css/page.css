@@ -1,0 +1,118 @@
+/*发布页开始*/
+.page-inner-body-input {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.page-inner-body-input p {
+    margin-top: 30px;
+}
+
+.page-inner-body-input from {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;;
+
+}
+
+.page-inner-body-input input {
+    margin-bottom: 15px;
+    border: 0px solid #da475a;
+    background: #eee0;
+    color: #fff;
+    width: 250px;
+    /*-webkit-border-radius:1.5em;*/
+    /*-moz-border-radius:1.5em;*/
+    /*border-radius:1.5em;*/
+    font-size: 16px;
+    outline: none;
+    border-bottom: 1.5px #da475a solid;
+}
+
+.page-inner-body-input textarea {
+    margin-bottom: 20px;
+    width: 100%;
+    color: #fff;
+    background: #eee0;
+    outline: none;
+    /*-webkit-border-radius:.5em;*/
+    /*-moz-border-radius:.5em;*/
+    /*border-radius:.5em;*/
+    border: 0px solid #da475a;
+    float: left;
+    font-size: 16px;
+    border-bottom: 1.5px #da475a solid;
+    resize: none;
+}
+
+.page-inner-body-input .submit {
+    background: #da475a;
+    width: 100px;
+    font-size: 20px;
+    margin: 20px auto;
+}
+
+.page-inner-body-input sup {
+    font-size: 10px;
+}
+
+.page-inner-body-input .radio {
+    /*width: 25px;*/
+    /*height: 25px;*/
+}
+
+.page-inner-body-input .radio::selection {
+
+}
+
+/*发布页结束*/
+
+/*关于页开始*/
+.page-inner-body-about {
+    width: 90%;
+    margin: 20px auto;
+}
+
+.page-inner-body-about p {
+    padding-top: 50px;
+    font-size: 200%;
+}
+
+.page-inner-body-about .CountNumber {
+    color: #da4759;
+    font-size: 500%;
+    text-decoration: underline;
+}
+
+.page-inner-footer-left {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+
+/*物品展示页面开始*/
+.page-inner-body-article{
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 100%;
+    height: 100%;
+}
+.page-inner-body-article #resultget {
+}
+.page-inner-body-article .articleitem{
+    border: 2px #0f0f0f;
+    border-radius: 20px;
+    width: 300px;
+    height: 580px;
+    float: left;
+}
+.page-inner-body-article .articleImage{
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+}
+.page-inner-body-article .articleImage:hover{
+    width: 300px;
+    height: 450px;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>失物招领处-长沙民政职业技术学院</title>
+    <link rel="shortcut icon" href="img/logo/csmzxy.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/demo.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/page.css"/>
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/date.js"></script>
+
+</head>
+<body>
+<div class="container">
+    <div id="splitlayout" class="splitlayout">
+        <div class="intro">
+            <div class="side side-left">
+                <header class="codropsheader clearfix">
+                    <span>长沙民政职业技术学院 <span class="bp-icon bp-icon-about"></span></span>
+                    <h1>失物招领处</h1>
+                </header>
+                <div class="intro-content">
+                    <div class="profile">
+                        <img src="img/logo/csmzxy.png" alt="thisWebLogo">
+                    </div>
+                    <h1><span>我在寻找她</span><span>我丢失了一些东西</span></h1>
+                </div>
+                <div class="overlay"></div>
+            </div>
+            <div class="side side-right">
+                <div class="intro-content">
+                    <div class="profile">
+                        <img src="img/logo.png" alt="thisWebLogo">
+                    </div>
+                    <h1><span>我想帮助他</span><span>好巧哦，我捡到了</span></h1>
+                </div>
+                <div class="overlay"></div>
+            </div>
+        </div><!-- /intro -->
+        <div class="page page-right">
+            <div class="page-inner">
+                <div class="page-inner-menu-right">
+                    <a href="#" onclick="changeRightPage('.page-inner-body-input')">发布</a>
+                    <a href="#" onclick="changeRightPage('.page-inner-body-about')">关于</a>
+                </div>
+                <div class="page-inner-body" id="test">
+
+                    <div class="page-inner-body-input">
+                        <form method="post" id="articleFrom">
+                            <!-- <p>您捡到了什么物品</p> -->
+
+                            <!-- <input class="radio" type="radio" name="classify" value="钱包">钱包 -->
+                            <!-- <input class="radio" type="radio" name="classify" value="校卡">校卡 -->
+                            <!-- <input class="radio" type="radio" name="classify" value="身份证">身份证 -->
+                            <!-- <input class="radio" type="radio" name="classify" value="其它">其它 -->
+
+                            <p>简单的描述一下</p>
+                            <textarea id="articleDescription" rows="3" cols="100%" name="articleDescription"
+                                      placeholder="比如：一个红色钱包，；如果有证件信息的话，可以输入失主信息。"></textarea>
+
+                            <p>在何时何地<sup>失主需要提供才可能看到您的信息。</sup></p>
+                            <input type="datetime-local" id="articleTime" value="" name="articleTime"/>
+                            <input type="text" id="articleLocal" name="articleLocal" placeholder="拾到地址">
+                            <p>需要几张照片吧</p>
+                            <input type="file" id="articleImg" accept="image/*" multiple="multiple"/>
+                            <p>也许需要您的一些联系方式</p>
+                            <input type="tel" id="articleContact" name="articleContact" placeholder="您的电话">
+                            <input type="text" id="articleAddress" name="articleAddress" placeholder="您近期的居住地">
+                            <br>
+                            <input class="submit" type="button" name="submit" onclick="submitArticle()" value="提交">
+                        </form>
+                    </div>
+                    <div class="page-inner-body-about" style="display: none;">
+                        <p style="text-align: left;">总共帮助了</p>
+                        <p class="CountNumber"></p>
+                        <p style="text-align: right;">朋友找到了他的心爱之物</p>
+                    </div>
+
+                </div>
+
+                <div class="page-inner-footer-right">
+                    @民院爱心社
+                </div>
+            </div><!-- /page-inner -->
+        </div><!-- /page-right -->
+        <div class="page page-left">
+            <div class="page-inner">
+                <div class="page-inner-menu-left">
+                    <a href="#" onclick="changeLeftPage('.page-inner-body-article')">东西</a>
+                    <a href="#" onclick="changeLeftPage('.page-inner-body-classify')">分类</a>
+                    <a href="#" onclick="changeLeftPage('.page-inner-body-help')">帮助</a>
+                    <a href="#" onclick="changeLeftPage('.page-inner-body-thanks')">感谢</a>
+                </div>
+                <div class="page-inner-body">
+                    <div class="page-inner-body-article">
+                        <div id="resultget">
+
+                        </div>
+                    </div>
+                    <div class="page-inner-body-classify" style="display: none;">
+                        暂未实现
+                    </div>
+                    <div class="page-inner-body-help" style="display: none;">
+                        如果啊。
+                    </div>
+                    <div class="page-inner-body-thanks" style="display: none;">
+                        上帝爱你。
+                    </div>
+                </div>
+                <div class="page-inner-footer-left">
+                    @民院爱心社
+                </div>
+            </div><!-- /page-inner -->
+
+        </div><!-- /page-left -->
+        <a href="#" class="back back-right" title="back to intro">&rarr;</a>
+        <a href="#" class="back back-left" title="back to intro">&larr;</a>
+    </div><!-- /splitlayout -->
+</div><!-- /container -->
+<script src="js/classie.js"></script>
+<script src="js/cbpSplitLayout.js"></script>
+
+</body>
+</html>
+
+
