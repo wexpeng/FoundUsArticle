@@ -17,6 +17,7 @@ function submitArticle() {
         }
     });
 }
+
 $(function () {
     $.ajax({
         //几个参数需要注意一下
@@ -26,14 +27,14 @@ $(function () {
         success: function (resultget) {
             console.log(resultget);//打印服务端返回的数据(调试用)
             if (resultget.resultCode = 200) {
-                var article= "<div>";
+                var article = "<div class='articleGroup'>";
                 $.each(resultget, function (i, n) {
-                   article += "<div class='articleitem'><img class=\"articleImage\" src=\""+n.articleImage+"\">" +
-                        "<label>"+n.articleDescription+"</label><br>"+
-                        "<label style='color:aquamarine; font-size: 16px'>拾到地址:"+n.articleLocal+"</label></div>";
+                    article += "<div class='articleitem'><img class=\"articleImage\" src=\"" + n.articleImage + "\"><br>" +
+                        "<label style='font-size: 18px'>" + n.articleDescription + "</label><br>" +
+                        "<label style='color:aquamarine; font-size: 16px'>拾到地址:" + n.articleLocal + "</label></div>";
                 });
-                article+="</div>"
-                $('#resultget').append(article);
+                article += "</div>";
+                $('.page-inner-body-article').append(article);
             }
             ;
         },
@@ -48,7 +49,7 @@ $(function () {
     var d = time.getDate();
     var h = time.getHours();
     var mm = time.getMinutes();
-    var ss = time.getSeconds()
+    var ss = time.getSeconds();
     if (m < 10) m = '0' + m;
     if (d < 10) d = '0' + d;
     if (h < 10) h = '0' + h;
@@ -61,16 +62,25 @@ $(function () {
         mm + ":" + ss;
     $("#articleTime").val(t);
 });
+
 function changeLeftPage(page) {
     $('.page-inner-body-article').hide();
     $('.page-inner-body-classify').hide();
     $('.page-inner-body-help').hide();
     $('.page-inner-body-thanks').hide();
+    $('.page-inner-body-article-a').css("font-size", "1em");
+    $('.page-inner-body-help-a').css("font-size", "1em");
+    $('.page-inner-body-classify-a').css("font-size", "1em");
+    $('.page-inner-body-thanks-a').css("font-size", "1em");
     $(page).show();
+    $('.page-inner-menu-left ' + page + '-a').css("font-size", "1.3em");
 }
 
 function changeRightPage(page) {
     $('.page-inner-body-input').hide();
     $('.page-inner-body-about').hide();
+    $('.page-inner-body-input-a').css("font-size", "1em");
+    $('.page-inner-body-about-a').css("font-size", "1em");
     $(page).show();
+    $('.page-inner-menu-right ' + page + '-a').css("font-size", "1.3em");
 }
