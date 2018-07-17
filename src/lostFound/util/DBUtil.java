@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class DBUtil {
 
-    private static String driver = "com.mysql.jdbc.Driver";
-    private static String url = "jdbc:mysql://localhost:3306/lostandfound?useSSL=false";
+    private static String driver = "com.mysql.cj.jdbc.Driver";
+    private static String url = "jdbc:mysql://localhost:3306/lostandfound?serverTimezone=UTC";
     private static String user = "root";
     private static String password = "root";
 

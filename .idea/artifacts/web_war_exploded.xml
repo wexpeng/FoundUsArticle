@@ -8,9 +8,9 @@
           <element id="module-output" name="web" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="mysql-connector-java-5.1.46-bin" />
           <element id="library" level="project" name="Java EE 6-Java EE 6" />
           <element id="library" level="project" name="gson-2.8.0" />
+          <element id="library" level="project" name="mysql-connector-java-8.0.11" />
         </element>
       </element>
     </root>
