@@ -18,7 +18,7 @@ public class GetArticle extends HttpServlet {
     ArticleDao articleDao = new ArticleDao();
     Article article = new Article();
 
-    ArrayList<Article> articleArrayList = new ArrayList<>();
+    ArrayList<Article> articleArrayList = new ArrayList<Article>();
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setCharacterEncoding("utf-8");
 

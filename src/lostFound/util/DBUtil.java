@@ -1,7 +1,6 @@
 package lostFound.util;
 
 import java.sql.*;
-import java.util.ArrayList;
 
 public class DBUtil {
 
@@ -9,6 +8,7 @@ public class DBUtil {
     private static String url = "jdbc:mysql://localhost:3306/lostandfound?serverTimezone=UTC";
     private static String user = "root";
     private static String password = "root";
+    //为了方便，使用的是mysql8.0，连接的jar包略有不同。
 
     //获取链接
     public static Connection getConnection() {
@@ -17,7 +17,9 @@ public class DBUtil {
         try {
             Class.forName(driver);
             connection = DriverManager.getConnection(url, user, password);
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         return connection;
@@ -50,6 +52,7 @@ public class DBUtil {
 
     public static void main(String[] args) {
         Connection connection = getConnection();
+        //这里仅仅用于测试
         try {
             System.out.println(connection.getSchema());
         } catch (SQLException e) {

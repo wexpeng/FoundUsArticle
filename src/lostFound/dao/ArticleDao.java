@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class ArticleDao {
     //查询所有物品
     public ArrayList<Article> getAllArticle() {
-        ArrayList<Article> articleArrayList = new ArrayList<>();
+        ArrayList<Article> articleArrayList = new ArrayList<Article>();
         Connection connection = DBUtil.getConnection();
         String sql = "select * from article";
         PreparedStatement preparedStatement = null;
@@ -42,7 +42,7 @@ public class ArticleDao {
     public void addArticle(Article article) throws SQLException {
         Connection connection = DBUtil.getConnection();
         PreparedStatement preparedStatement = null;
-        String sql = "insert into article (articleId,articleDescription,articleLocal,articleContact,articleAddress,articleWebsite) values(null,?,?,?,?,?)";
+        String sql = "insert into article (articleId,articleDescription,articleLocal,articleContact,articleAddress,articleWebsite,articleImage) values(null,?,?,?,?,?,?)";
         try {
             preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, article.getArticleDescription());
@@ -51,6 +51,7 @@ public class ArticleDao {
             preparedStatement.setString(3, article.getArticleContact());
             preparedStatement.setString(4, article.getArticleAddress());
             preparedStatement.setString(5,article.getArticleWebsite());
+            preparedStatement.setString(6,article.getArticleImage());
             preparedStatement.executeUpdate();
 
         } catch (SQLException e){

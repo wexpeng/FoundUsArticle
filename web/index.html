@@ -50,7 +50,7 @@
                 <div class="page-inner-body" id="test">
 
                     <div class="page-inner-body-input">
-                        <form method="post" id="articleFrom">
+                        <form method="post" id="articleFrom" enctype="multipart/form-data" action="FoundArticle">
                             <!-- <p>您捡到了什么物品</p> -->
 
                             <!-- <input class="radio" type="radio" name="classify" value="钱包">钱包 -->
@@ -66,11 +66,12 @@
                             <input type="datetime-local" id="articleTime" value="" name="articleTime"/>
                             <input type="text" id="articleLocal" name="articleLocal" placeholder="拾到地址">
                             <p>需要几张照片吧</p>
-                            <input type="file" id="articleImg" accept="image/*" multiple="multiple"/>
+                            <input type="file" id="articleImg" name="articleImage" accept="image/*" multiple="multiple"/>
                             <p>也许需要您的一些联系方式</p>
                             <input type="tel" id="articleContact" name="articleContact" placeholder="您的电话">
                             <input type="text" id="articleAddress" name="articleAddress" placeholder="您近期的居住地">
                             <br>
+                            <!--<input class="submit" type="submit" name="submit" value="提交">-->
                             <input class="submit" type="button" name="submit" onclick="submitArticle()" value="提交">
                         </form>
                     </div>

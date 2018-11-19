@@ -1,24 +1,5 @@
-function submitArticle() {
-    $.ajax({
-        //几个参数需要注意一下
-        type: "POST",//方法类型
-        dataType: "text",//预期服务器返回的数据类型
-        url: "FoundArticle",//url
-        data: $('#articleFrom').serialize(),
-        success: function (result) {
-            if (result.resultCode = 200) {
-                // $('#massageShow').html(result);
-                alert("提交成功,感谢您的爱心。");
-            }
-            ;
-        },
-        error: function () {
-            alert("提交异常！请重新提交");
-        }
-    });
-}
-
-$(function () {
+//获取数据
+function getArticle() {
     $.ajax({
         //几个参数需要注意一下
         type: "post",//方法类型
@@ -34,6 +15,7 @@ $(function () {
                         "<label style='color:aquamarine; font-size: 16px'>拾到地址:" + n.articleLocal + "</label></div>";
                 });
                 article += "</div>";
+                $('.page-inner-body-article').empty();
                 $('.page-inner-body-article').append(article);
             }
             ;
@@ -42,6 +24,42 @@ $(function () {
             alert("失败执行");
         }
     });
+}
+
+//提交数据
+function submitArticle() {
+    $.ajax({
+        //几个参数需要注意一下
+        type: "POST",//方法类型
+        contentType:false, //给服务器的数据格式
+        url: "FoundArticle",//url
+        data: new FormData($('#articleFrom')[0]),
+        processData: false,
+        //  data: "articleDescription=" + $('#articleDescription').val() +
+        //       "&articleTime=" + $('#articleTime').val() +
+        //       "&articleLocal=" + $('#articleLocal').val() +
+        //       "&articleImg=" + $('#articleImg').val() +
+        //       "&articleContact=" + $('#articleContact').val() +
+        //       "&articleAddress=" + $('#articleAddress').val(),
+        success: function (result) {
+            if (result.resultCode = 200) {
+                // $('#massageShow').html(result);
+
+                console.log("提交成功"+$('#articleFrom')[0]);
+                getArticle();   //刷新数据
+                $('#splitlayout').attr("class","splitlayout open-left");  //跳转到物品页
+            }
+            ;
+        },
+        error: function () {
+            alert("提交异常！网站出错，请联系管理员（tel:18229738322）");
+        }
+    });
+}
+
+//数据初始化
+$(function () {
+    getArticle();  //获得数据
     $(".CountNumber").text("456"); //about页面数据，假数据。以后用JSon传递
     var time = new Date();   // 程序计时的月从0开始取值后+1
     var y = time.getFullYear();
@@ -49,7 +67,7 @@ $(function () {
     var d = time.getDate();
     var h = time.getHours();
     var mm = time.getMinutes();
-    var ss = time.getSeconds();
+    var ss = 0;
     if (m < 10) m = '0' + m;
     if (d < 10) d = '0' + d;
     if (h < 10) h = '0' + h;
