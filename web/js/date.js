@@ -21,10 +21,41 @@ function getArticle() {
             ;
         },
         error: function () {
-            alert("失败执行");
+            console.log("失败执行");
         }
     });
 }
+
+//查询数据
+function searchArticle() {
+    $.ajax({
+        //几个参数需要注意一下
+        type: "post",//方法类型
+        date: $('#searchFrom').serialize(),
+        dataType: "json",//预期服务器返回的数据类型
+        url: "/SearchArticle",//请求地址
+        success: function (resultget) {
+            console.log(resultget);//打印服务端返回的数据(调试用)
+            if (resultget.resultCode = 200) {
+                var article = "<div class='articleGroup'>";
+                $.each(resultget, function (i, n) {
+                    article += "<div class='articleitem'><img class=\"articleImage\" src=\"" + n.articleImage + "\"><br>" +
+                        "<label style='font-size: 18px'>" + n.articleDescription + "</label><br>" +
+                        "<label style='color:aquamarine; font-size: 16px'>拾到地址:" + n.articleLocal + "</label></div>";
+                });
+                article += "</div>";
+                $('.page-inner-body-classify').empty();
+                $('.page-inner-body-classify').append(article);
+            }
+            ;
+        },
+        error: function () {
+            console.log("失败执行");
+        }
+    });
+}
+
+
 
 //提交数据
 function submitArticle() {

@@ -1,7 +1,9 @@
 ::-webkit-scrollbar {
 	display:none
 }
-html, body, 
+html, body,
+
+
 .container {
 	position: relative;
 	width: 100%;
@@ -374,15 +376,15 @@ body {
 }
 
 /* Media Queries */
-@media screen and (max-width: 83em) {
+@media screen and (max-width: 830em) {
 	.intro-content { font-size: 60%; }
 }
 
-@media screen and (max-width: 58em) {
+@media screen and (max-width: 580em) {
 	body { font-size: 90%; }
 }
 
-@media screen and (max-width: 49.4375em) {
+@media screen and (max-width: 490.4375em) {
 	.open-right .side-right {
 		-webkit-transform: translateX(-175%);
 		transform: translateX(-175%);

@@ -115,3 +115,18 @@
 }
 .page-inner-body-article .articleImage:hover{
 }
+
+.page-inner-body-classify input {
+
+    outline: none;
+    border: none;
+    width: 70%;
+    margin: 30% 15%;
+    padding: 15px 0;
+    font-size: 20px;
+    border-bottom: 1px solid #FFFFFF;
+    text-indent: 10px;
+    transition: all 0.3s;
+    background-color: transparent;
+    color: #FFFFFF;
+}

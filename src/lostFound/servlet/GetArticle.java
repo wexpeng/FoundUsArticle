@@ -15,48 +15,30 @@ import java.util.ArrayList;
 
 @WebServlet("/GetArticle")
 public class GetArticle extends HttpServlet {
-    ArticleDao articleDao = new ArticleDao();
-    Article article = new Article();
 
-    ArrayList<Article> articleArrayList = new ArrayList<Article>();
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setCharacterEncoding("utf-8");
 
+        ArticleDao articleDao = new ArticleDao();
+        Article article = new Article();
+        ArrayList<Article> articleList = new ArrayList<Article>();
 
-        articleArrayList = articleDao.getAllArticle();
-        String json = new Gson().toJson(articleArrayList);
-
-        //String json1 = "[" +
-        //        "{\"articleId\":\"" + 1 +
-        //        "\",\"articleDescription\":\""+"一个黑色的钱包"+
-        //        "\",\"articleLocal\":\""+"3区2栋604"+
-        //        "\",\"articleImage\":\""+"/img/article/kk.png"+
-        //        "\",\"articleContact\":\""+"18229738222"+
-        //        "\",\"articleAddress\":\""+"牛耳实训基地"+
-        //        "\"},";
-        //
-        //String json2 =
-        //        "{\"articleId\":\"" + 1 +
-        //        "\",\"articleDescription\":\""+"一个黑色的钱包"+
-        //        "\",\"articleLocal\":\""+"3区2栋604"+
-        //        "\",\"articleImage\":\""+"/img/article/kk.png"+
-        //        "\",\"articleContact\":\""+"18229738222"+
-        //        "\",\"articleAddress\":\""+"牛耳实训基地"+
-        //        "\"},";
-        //
-        //String json3 =
-        //        "{\"articleId\":\"" + 1 +
-        //        "\",\"articleDescription\":\""+"一个黑色的钱包"+
-        //        "\",\"articleLocal\":\""+"3区2栋604"+
-        //        "\",\"articleImage\":\""+"/img/article/kk.png"+
-        //        "\",\"articleContact\":\""+"18229738222"+
-        //        "\",\"articleAddress\":\""+"牛耳实训基地"+
-        //        "\"}]";
-
+        articleList = articleDao.getArticle();
+        String json = new Gson().toJson(articleList);
         PrintWriter printWriter = response.getWriter();
         printWriter.print(json);
         printWriter.flush();
         printWriter.close();
     }
-
 }
+//测试json
+//String json1 = "[" +
+//        "{\"articleId\":\"" + 1 +
+//        "\",\"articleDescription\":\""+"一个黑色的钱包"+
+//        "\",\"articleLocal\":\""+"3区2栋604"+
+//        "\",\"articleImage\":\""+"/img/article/kk.png"+
+//        "\",\"articleContact\":\""+"18229738222"+
+//        "\",\"articleAddress\":\""+"牛耳实训基地"+
+//        "\"},";
+//
+

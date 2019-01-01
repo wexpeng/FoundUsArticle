@@ -7,17 +7,31 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class ArticleDao {
-    //查询所有物品
-    public ArrayList<Article> getAllArticle() {
-        ArrayList<Article> articleArrayList = new ArrayList<Article>();
-        Connection connection = DBUtil.getConnection();
+
+    ResultSet resultSet = null;
+    ArrayList<Article> articleList = new ArrayList<Article>();
+    PreparedStatement preparedStatement = null;
+    Connection connection = null;
+    //获取所有物品
+    public ArrayList<Article> getArticle() {
+
         String sql = "select * from article";
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
+        return printArticle(sql);
+    }
+
+    //查询一个物品
+    public ArrayList<Article> getArticle(String searchKey) {
+        String sql = "select * from article where articleDescription like \"%"+ searchKey+"%\"";
+        System.out.print(sql);
+        return printArticle(sql);
+    }
+
+    private ArrayList<Article> printArticle(String sql){
 
         try {
+            Connection connection = DBUtil.getConnection();
+            //获得数据库连接
             preparedStatement = connection.prepareStatement(sql);
-
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Article article = new Article();
@@ -28,15 +42,20 @@ public class ArticleDao {
                 article.setArticleContact(resultSet.getString("articleContact"));
                 article.setArticleAddress(resultSet.getString("articleAddress"));
                 article.setArticleImage(resultSet.getString("articleImage"));
-                articleArrayList.add(article);
+                articleList.add(article);
             }
-        } catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DBUtil.closeConn(connection, preparedStatement, resultSet);
         }
-        return articleArrayList;
+
+        return articleList;
     }
+
+
+
+
 
     //新增一个物品
     public void addArticle(Article article) throws SQLException {
