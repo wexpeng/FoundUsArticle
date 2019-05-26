@@ -20,7 +20,6 @@ public class GetArticle extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         ArticleDao articleDao = new ArticleDao();
-        Article article = new Article();
         ArrayList<Article> articleList = new ArrayList<Article>();
 
         articleList = articleDao.getArticle();
@@ -32,13 +31,13 @@ public class GetArticle extends HttpServlet {
     }
 }
 //测试json
-//String json1 = "[" +
-//        "{\"articleId\":\"" + 1 +
-//        "\",\"articleDescription\":\""+"一个黑色的钱包"+
-//        "\",\"articleLocal\":\""+"3区2栋604"+
-//        "\",\"articleImage\":\""+"/img/article/kk.png"+
-//        "\",\"articleContact\":\""+"18229738222"+
-//        "\",\"articleAddress\":\""+"牛耳实训基地"+
-//        "\"},";
-//
+/*String json1 = "[" +
+        "{\"articleId\":\"" + 1 +
+        "\",\"articleDescription\":\""+"一个黑色的钱包"+
+        "\",\"articleLocal\":\""+"3区2栋604"+
+        "\",\"articleImage\":\""+"/img/article/kk.png"+
+        "\",\"articleContact\":\""+"18229738222"+
+        "\",\"articleAddress\":\""+"某一个地方"+
+        "\"},";
+*/
 

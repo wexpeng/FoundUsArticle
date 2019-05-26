@@ -26,24 +26,14 @@ public class FoundArticle extends HttpServlet {
         response.setContentType("charset=utf-8");
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
-
         //上传文件的组件
-
         Part part = request.getPart("articleImage");
-
         // 简单判断下，是不是图片类型
-
-        // 获取上传的文件名
-        //ApplicationPart ap = (ApplicationPart) part;
-        //String fileName = ap.getSubmittedFileName();
-
         String header = part.getHeader("Content-Disposition");
         int idx = header.lastIndexOf("filename=\"");
         String fileName = header.substring(idx+10, header.length()-1);
-
-
-
-        String path = request.getSession().getServletContext().getRealPath("/") + "img\\article\\";
+        String path = request.getSession().getServletContext().getRealPath("/") + "img/article/";
+        // 获取上传的文件名
         File filePath = new File(path);
         // 保存文件
         part.write(path + fileName);

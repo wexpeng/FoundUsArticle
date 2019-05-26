@@ -15,20 +15,20 @@
 
 </head>
 <body>
-<div style="position: fixed;z-index: 999;right: 10px;button: 10px;">
-    <form id="searchFrom" method="post" action="">
-        <input type="text" name="searchKey" value="校卡" style="outline: none;border: none;font-size: 20px;border-bottom: 1px solid #FFFFFF;text-indent: 10px;background-color: transparent;color: #FFFFFF;
-"><button type="submit" onclick="searchArticle()" style="outline:none;border: none;background-color: transparent">
-        <svg version="1.1" x="0px" y="0px" viewBox="0 0 451 451" xml:space="preserve" style="fill: #FFFFFF;width: 20px;" >
-            <path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3
-                            s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4
-                            C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3
-                            s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>
+<!--<div style="position: fixed;z-index: 999;right: 10px;button: 10px;">-->
+    <!--<form id="searchFrom" method="post" action="">-->
+        <!--<input type="text" name="searchKey" value="校卡" style="outline: none;border: none;font-size: 20px;border-bottom: 1px solid #FFFFFF;text-indent: 10px;background-color: transparent;color: #FFFFFF;-->
+<!--"><button type="submit" onclick="searchArticle()" style="outline:none;border: none;background-color: transparent">-->
+        <!--<svg version="1.1" x="0px" y="0px" viewBox="0 0 451 451" xml:space="preserve" style="fill: #FFFFFF;width: 20px;" >-->
+            <!--<path d="M447.05,428l-109.6-109.6c29.4-33.8,47.2-77.9,47.2-126.1C384.65,86.2,298.35,0,192.35,0C86.25,0,0.05,86.3,0.05,192.3-->
+                            <!--s86.3,192.3,192.3,192.3c48.2,0,92.3-17.8,126.1-47.2L428.05,447c2.6,2.6,6.1,4,9.5,4s6.9-1.3,9.5-4-->
+                            <!--C452.25,441.8,452.25,433.2,447.05,428z M26.95,192.3c0-91.2,74.2-165.3,165.3-165.3c91.2,0,165.3,74.2,165.3,165.3-->
+                            <!--s-74.1,165.4-165.3,165.4C101.15,357.7,26.95,283.5,26.95,192.3z"></path>-->
 
-    </svg>
-    </button>
-    </form>
-</div>
+    <!--</svg>-->
+    <!--</button>-->
+    <!--</form>-->
+<!--</div>-->
 <div class="container">
     <div id="splitlayout" class="splitlayout">
         <div class="intro">
@@ -123,8 +123,8 @@
 
                     <div class="page-inner-body-classify" style="display: none;">
                         <!--这里是搜索页面，需要一个文本框输入-->
-                        <form method="post" id="search">
-                            <input type="text" placeholder="输入校卡、手机等 回车查看." id="searchKey" name="searchKey">
+                        <form method="get" id="search" action="result.jsp">
+                            <input type="text" placeholder="输入校卡、手机等 回车查看." id="searchKey" name="searchKey" required>
                             <input type="submit" onclick="searchArticle()" style="display:none" value="提交"/>
                         </form>
                     </div>

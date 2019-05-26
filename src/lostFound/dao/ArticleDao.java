@@ -18,10 +18,9 @@ public class ArticleDao {
         String sql = "select * from article";
         return printArticle(sql);
     }
-
     //查询一个物品
     public ArrayList<Article> getArticle(String searchKey) {
-        String sql = "select * from article where articleDescription like \"%"+ searchKey+"%\"";
+        String sql = "select * from article where articleDescription like "+"'%"+searchKey+"%'";
         System.out.print(sql);
         return printArticle(sql);
     }
@@ -52,11 +51,6 @@ public class ArticleDao {
 
         return articleList;
     }
-
-
-
-
-
     //新增一个物品
     public void addArticle(Article article) throws SQLException {
         Connection connection = DBUtil.getConnection();
@@ -67,8 +61,8 @@ public class ArticleDao {
             preparedStatement.setString(1, article.getArticleDescription());
             //preparedStatement.setDate(2, (Date) article.getArticleTime());
             preparedStatement.setString(2,article.getArticleLocal());
-            preparedStatement.setString(3, article.getArticleContact());
-            preparedStatement.setString(4, article.getArticleAddress());
+            preparedStatement.setString(3,article.getArticleContact());
+            preparedStatement.setString(4,article.getArticleAddress());
             preparedStatement.setString(5,article.getArticleWebsite());
             preparedStatement.setString(6,article.getArticleImage());
             preparedStatement.executeUpdate();
@@ -80,13 +74,13 @@ public class ArticleDao {
         }
     }
     //删除商品
-    public void delArticle(int articleId){
+    public void delArticle(String articleId){
         Connection connection = DBUtil.getConnection();
-        String sql = "delete from article where article = ? ";
+        String sql = "delete from article where articleId = ? ";
         PreparedStatement preparedStatement = null;
         try {
             preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1,articleId);
+            preparedStatement.setInt(1, Integer.parseInt(articleId));
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
